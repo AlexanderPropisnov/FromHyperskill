@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 5px;
+            font-size: 18px;
+        }
+        #messages {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-bottom: 5px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        .message {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        #users {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-height: 200px; /* Set a max height for the container */
+            overflow-y: scroll; /* Enable vertical scrolling */
+        }
+        .user-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .user-container:hover {
+            background-color: #f0f0f0; /* Highlight on hover */
+        }
+        .new-message-counter {
+            display: none; /* Hide by default */
+            color: red; /* Example styling for the counter */
+            font-weight: bold;
+            margin-left: 5px; /* Space between user name and counter */
+        }
+        .user {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .sender {
+            font-weight: bold;
+            color: #007bff; /* A nice blue color for sender names */
+        }
+        .private-message {
+            background-color: #e8f0fe; /* Light background for private messages */
+        }
+    </style>
+</head>
+<body>
+
+<h1 >Chat</h1>
+<h1 id="currentUserDisplay2">u</h1>
+<!--<div id="username" style="display: none;">YourUsername</div>-->
+<div id="connecting" style="display: none;"></div>
+
+<!-- Username input section -->
+<div id="usernameSection">
+    <input type="text" id="input-username" placeholder="Enter your username" />
+    <button id="send-username-btn">Send</button>
+</div>
+
+<div id="users" style="display: none;">
+    <h6>Online Users</h6>
+    <div id="onlineUsers"></div>
+</div>
+
+<div id="chatSection" style="display: none;">
+<div id="messages"></div>
+
+<form id="messageForm" name="messageForm">
+    <div class="input-message">
+        <textarea id="input-msg" rows="4" cols="50" placeholder="Type a message"></textarea>
+        <br>
+        <button id="send-msg-btn">Send</button>
+    </div>
+    <button id="request-history-btn">Request History</button>
+    <div id="currentChat">Public chat</div>
+    <button id="public-chat-btn">Switch to Public Chat</button>
+
+        <div id="chat-with" style="margin-bottom: 10px;">Public chat</div>
+</form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<script src="chat2.js"></script>
+</body>
+</html>
